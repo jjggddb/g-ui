@@ -1,0 +1,24 @@
+{
+  "name": "g-ui",
+  "version": "0.1.0",
+  "description": "GUI app template.",
+  "author": "jjggddb",
+  "scripts": {
+    "lint": "eslint \"./**\" --fix",
+    "lint:dry": "eslint \"./**\" --fix-dry-run",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "main": "main.js",
+  "dependencies": {
+    "decimal.js": "^10.3.1",
+    "moment": "^2.29.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "license": "ISC",
+  "keywords": []
+}
