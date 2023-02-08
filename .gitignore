@@ -1,0 +1,7 @@
+node_modules/
+unpackage/dist/**
+unpackage/
+wxcomponents/**/*.vue
+wxcomponents/**/*.css
+.hbuilderx/
+package-lock.json
