@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "index-g-table-default": "/pages/index/index-g-table-default",
+    "index-g-table-slotName2": "/pages/index/index-g-table-slotName2",
+    "g-table": "/@gui/components/g-table/index"
+  }
+}

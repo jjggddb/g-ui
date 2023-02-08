@@ -7,7 +7,20 @@
       :columns="columns"
       :data="dataList"
       :pagination="pagination"
-      @pageChange="pageChange" />
+      @pageChange="pageChange" >
+      <template slot-scope="{value, row, index, col}">
+        <text>{{ index }}</text>
+        <text>{{ value }}</text>
+        <!-- <text>{{ row }}</text> -->
+        <!-- <text>{{ col }}</text> -->
+      </template>
+      <template slot-scope="{value, row, index, col}">
+        <text>{{ index }},</text>
+        <text>{{ value }}</text>
+        <!-- <text>{{ row }}</text> -->
+        <!-- <text>{{ col }}</text> -->
+      </template>
+    </g-table>
   </view>
 </template>
 
@@ -36,24 +49,25 @@ export default {
         cellStyle: {
           color: 'red'
         },
-		slot: 'test'
+        slot: true
       },
       {
         title: '动账日期22',
-        width: '120',
+        width: '130',
         align: 'center',
         key: 'bbb',
         type: 'price'
       }, {
         title: '动账日期33',
-        width: '120',
+        width: '140',
         align: 'center',
         key: 'ccc',
         type: 'date',
-        format: 'YYYY-MM-DD'
+        format: 'YYYY-MM-DD',
+        slot: true
       }, {
         title: '动账日期44',
-        width: '120',
+        width: '150',
         align: 'center',
         key: 'ddd',
         type: 'dict'
@@ -95,28 +109,6 @@ export default {
 
 <style>
 	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
 	}
 </style>

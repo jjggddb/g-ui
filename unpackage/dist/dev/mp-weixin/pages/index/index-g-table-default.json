@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "index-g-table-default": "/pages/index/index-g-table-default",
+    "g-table": "/@gui/components/g-table/index"
+  }
+}

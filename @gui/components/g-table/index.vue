@@ -1,25 +1,28 @@
 <template>
-  <scroll-view>
-    <view>
-      <uni-table
-        ref="gTable"
-        :loading="innerLoading"
-        :data="data"
-        stripe
-        :empty-text="emptyText"
-        @selectionChange="selectionChange">
-        <uni-tr>
-          <uni-th v-for="(th, thIndex) in columns" :key="thIndex" :width="th.width" :align="th.align">
-            <text :style="[th.headerStyle]">{{ th.title }}</text>
-          </uni-th>
-        </uni-tr>
-        <uni-tr v-for="(tr, trIndex) in innerData" :key="trIndex">
-          <uni-td v-for="(td, tdIndex) in columns" :key="tdIndex" :align="td.align">
-            <text :style="[td.cellStyle]">{{ formatData(tr[td.key], td) }}</text>
-          </uni-td>
-        </uni-tr>
-      </uni-table>
-    </view>
+  <view>
+    <uni-table
+      ref="gTable"
+      :loading="innerLoading"
+      :data="data"
+      stripe
+      :empty-text="emptyText"
+      @selectionChange="selectionChange">
+      <uni-tr>
+        <uni-th v-for="(th, thIndex) in columns" :key="thIndex" :width="th.width" :align="th.align">
+          <text :style="[th.headerStyle]">{{ th.title }}</text>
+        </uni-th>
+      </uni-tr>
+      <uni-tr v-for="(row, rowIndex) in innerData" :key="rowIndex">
+        <uni-td v-for="(col, colIndex) in columns" :key="colIndex" :align="col.align">
+          <template v-if="col.slot">
+            <slot :value="row[col.key]" :row="row" :index="rowIndex" :col="col"/>
+          </template>
+          <template v-else>
+            <text :style="[col.cellStyle]" >{{ formatData(row[col.key], col) }}</text>
+          </template>
+        </uni-td>
+      </uni-tr>
+    </uni-table>
     <view class="pagination-box" v-if="pagination">
       <uni-pagination
         v-model="innerPage.page"
@@ -30,7 +33,7 @@
         :next-text="pagination.nextText"
         @change="pageChange" />
     </view>
-  </scroll-view>
+  </view>
 </template>
 
 <script>
