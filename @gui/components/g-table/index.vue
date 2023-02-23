@@ -151,7 +151,5 @@ export default {
 </script>
 
 <style scoped>
-	.pagination-box {
-		margin-top: 10px;
-	}
+@import './index.scss'
 </style>

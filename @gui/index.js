@@ -1,5 +1,4 @@
 import * as fmfs from './libs/format.js'
-
 const $g = {
   fmfs
 }
